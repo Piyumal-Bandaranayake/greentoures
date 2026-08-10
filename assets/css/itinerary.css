@@ -1,0 +1,122 @@
+/* Green Ceylon Travels - Itinerary Stylesheet */
+
+/* Timeline styling */
+.itinerary-timeline {
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.itinerary-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.875rem; /* center the line under the circle */
+    top: 1rem;
+    bottom: 1rem;
+    width: 2px;
+    background: linear-gradient(180deg, #1E7E34 0%, rgba(30, 126, 52, 0.2) 100%);
+}
+
+.timeline-circle {
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 9999px;
+    background-color: #1E7E34;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    box-shadow: 0 4px 6px -1px rgba(30, 126, 52, 0.3);
+    z-index: 10;
+}
+
+/* Callout notes (Red text in source sheets translated to premium brand-pink alert boxes) */
+.note-callout {
+    background-color: rgba(214, 0, 109, 0.05);
+    border-left: 4px solid #D6006D;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.note-callout-title {
+    color: #D6006D;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.note-callout-text {
+    color: #0B2545;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Pricing and notes columns */
+.pricing-notes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .pricing-notes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Print styles */
+@media print {
+    /* Hide site nav and footer */
+    header, footer, #main-header, #mobile-menu, button, .no-print {
+        display: none !important;
+    }
+
+    body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        font-size: 12pt;
+    }
+
+    main {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .bg-brand-cream, .bg-brand-navy {
+        background-color: transparent !important;
+        color: #000000 !important;
+    }
+
+    .shadow-lg, .shadow-md, .shadow-xs {
+        box-shadow: none !important;
+    }
+
+    .border-brand-navy\/5 {
+        border-color: #e5e7eb !important;
+    }
+
+    /* Print margins and page breaks */
+    .itinerary-card {
+        page-break-inside: avoid;
+        border: 1px solid #e5e7eb !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .pricing-section {
+        page-break-inside: avoid;
+    }
+
+    /* Ensure circles are visible on print */
+    .timeline-circle {
+        background-color: #1E7E34 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

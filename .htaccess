@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteRule ^rent-a-car/tourist-hire/?$ rent-a-car/tourist-hire.php [L]
+RewriteRule ^rent-a-car/wedding-car/?$ rent-a-car/wedding-car.php [L]
